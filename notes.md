@@ -9,7 +9,8 @@
 ```
 users {
     id();
-    string('name');
+    string('first_name');
+    string('last_name');
     string('email')->unique();
     string('phone_number')->nullable();
     string('secondary_phone_number')->nullable();
