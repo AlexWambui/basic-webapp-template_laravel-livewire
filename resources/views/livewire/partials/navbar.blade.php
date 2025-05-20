@@ -1,4 +1,4 @@
-<nav x-data="{ open:false }">
+<nav x-data="{ open:false }" @click.outside="open = false" class="relative">
     <div class="container">
         <div class="branding">
             <a href="/" wire:navigate>
@@ -7,9 +7,9 @@
         </div>
 
         <div class="burger_menu" @click="open = !open">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span :class="open ? 'rotate-45 translate-y-1.5' : ''"></span>
+            <span :class="open ? 'opacity-0' : ''"></span>
+            <span :class="open ? '-rotate-45 -translate-y-1.5' : ''"></span>
         </div>
 
         <div class="nav_links" :class="{ 'open' : open }">
