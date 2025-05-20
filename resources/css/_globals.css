@@ -1,0 +1,9 @@
+body {
+    font-family: 'Roboto', sans-serif;
+
+    .container {
+        @apply px-4 py-6 md:px-16 mx-auto;
+    }
+}
+
+@import "./partials/navbar.css";
