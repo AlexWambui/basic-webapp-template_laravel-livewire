@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
 
             $users = [
                 [
-                    'uuid' => Str::uuid(),
+                    'uuid' => Str::ulid(),
                     'first_name' => 'Admin',
                     'last_name' => 'Account',
                     'email' => 'admin@gmail.com',
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
                     'role' => 1,
                 ],
                 [
-                    'uuid' => Str::uuid(),
+                    'uuid' => Str::ulid(),
                     'first_name' => 'Test',
                     'last_name' => 'User',
                     'email' => 'user@gmail.com',
