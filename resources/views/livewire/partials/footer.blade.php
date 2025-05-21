@@ -22,7 +22,7 @@
                     <a href="{{ Route::has('about-page') ? route('about-page') : '#' }}">About</a>
                     <a href="{{ Route::has('about-page') ? route('about-page') : '#' }}">Services</a>
                     <a href="{{ Route::has('about-page') ? route('about-page') : '#' }}">Portfolio</a>
-                    <a href="{{ Route::has('about-page') ? route('about-page') : '#' }}">Contact</a>
+                    <a href="{{ Route::has('contact-page') ? route('about-page') : '#' }}">Contact</a>
                 </div>
             </div>
 
