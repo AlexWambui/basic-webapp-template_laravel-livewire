@@ -25,13 +25,22 @@
 
     .Login,
     .Signup,
-    .ForgotPassword {
+    .ForgotPassword,
+    .ResetPassword {
         @apply w-[90%] md:w-[550px] mx-auto;
     }
 
     .ForgotPassword {
         p {
             @apply mb-4;
+        }
+    }
+
+    .VerifyEmail {
+        @apply w-[90%] md:w-[700px] mx-auto;
+
+        .buttons_group {
+            @apply mt-4;
         }
     }
 }

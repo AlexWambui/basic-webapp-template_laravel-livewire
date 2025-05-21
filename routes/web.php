@@ -6,7 +6,7 @@ use App\Livewire\Pages\General\Index as HomePage;
 
 Route::get('/', HomePage::class)->name('home-page');
 
-Route::middleware(['auth'])->group(function() {
+Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('dashboard', Dashboard::class)->name('dashboard');
 });
 
