@@ -23,7 +23,8 @@
         }
     }
 
-    .Login {
+    .Login,
+    .Signup {
         @apply w-[90%] md:w-[550px] mx-auto;
     }
 }
