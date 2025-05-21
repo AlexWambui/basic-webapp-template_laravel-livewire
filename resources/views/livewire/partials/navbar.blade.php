@@ -15,7 +15,7 @@
         <div class="nav_links" :class="{ 'open' : open }">
             @php
                 $links = [
-                    ['href' => 'about-page', 'text' => 'Home'],
+                    ['href' => 'home-page', 'text' => 'Home'],
                     ['href' => 'about-page', 'text' => 'About'],
                     ['href' => 'about-page', 'text' => 'Services'],
                     ['href' => 'about-page', 'text' => 'Contact'],
@@ -23,13 +23,20 @@
             @endphp
 
             <div class="main_links">
+                @auth
+                    <a href="{{ Route::has('dashboard') ? route('dashboard') : '#' }}" wire:navigate>Dashboard</a>
+                @endif
                 @foreach ($links as $link)
                     <a href="{{ Route::has($link['href']) ? route($link['href']) : '#' }}" wire:navigate>{{ $link['text'] }}</a>
                 @endforeach
             </div>
 
             <div class="other_links">
-                <a href="{{ Route::has('login') ? route('login') : '#' }}">Login</a>
+                @auth
+                    <button wire:click="logout">Logout</button>
+                @else
+                    <a href="{{ Route::has('login') ? route('login') : '#' }}">Login</a>
+                @endauth
             </div>
         </div>
     </div>
