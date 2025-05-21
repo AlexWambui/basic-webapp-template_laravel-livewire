@@ -43,4 +43,38 @@
             @apply mt-4;
         }
     }
+
+    .Profile {
+        section {
+            @apply mb-20;
+
+            header {
+                h2 {
+                    @apply text-lg font-medium text-gray-900;
+                }
+
+                p {
+                    @apply mt-2 mb-4 text-sm text-gray-600 dark:text-gray-400;
+                }
+            }
+
+            .custom_form {
+                .inputs {
+                    @apply md:w-[50%];
+                }
+
+                button {
+                    @apply w-[unset];
+                }
+            }
+        }
+
+        .delete_user {
+            .custom_form {
+               .inputs {
+                    @apply w-full;
+                }
+            }
+        }
+    }
 }
