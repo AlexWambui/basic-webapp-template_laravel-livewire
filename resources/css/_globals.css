@@ -11,5 +11,6 @@ body {
 
 @import "./partials/navbar.css";
 @import "./partials/app-navbar.css";
+@import "./partials/footer.css";
 
 @import "./pages/Authentication.css";
