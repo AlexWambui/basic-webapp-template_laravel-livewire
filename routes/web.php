@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Pages\Dashboard\Index as Dashboard;
 use App\Livewire\Pages\General\Index as HomePage;
+use App\Livewire\Pages\General\About as AboutPage;
 use App\Livewire\Auth\Profile\Index as Profile;
 
 Route::get('/', HomePage::class)->name('home-page');
+Route::get('about', AboutPage::class)->name('about-page');
 
 Route::middleware(['auth'])->group(function() {
     Route::get('profile', Profile::class)->name('profile.edit');
