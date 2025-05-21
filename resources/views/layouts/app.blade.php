@@ -10,7 +10,7 @@
         <title>{{ config('app.name', 'Aaqil Softwares') }}</title>
     </head>
     <body>
-        <livewire:partials.navbar />
+        <livewire:partials.app-navbar />
 
         <main class="main_app">
             {{ $slot }}

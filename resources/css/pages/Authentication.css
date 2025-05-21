@@ -1,0 +1,29 @@
+.Authentication {
+    @apply min-h-[90dvh] flex items-center justify-center;
+
+    .custom_form {
+        .header {
+            @apply text-xl font-bold text-center uppercase tracking-wide mb-4 border-b-2 border-gray-200 pb-2;
+        }
+
+        a {
+            @apply text-blue-500;
+        }
+
+        button {
+            @apply w-full;
+        }
+
+        .extra_inputs {
+            @apply mt-2 mb-2;
+        }
+
+        .extra_links {
+            @apply mt-4;
+        }
+    }
+
+    .Login {
+        @apply w-[90%] md:w-[550px] mx-auto;
+    }
+}

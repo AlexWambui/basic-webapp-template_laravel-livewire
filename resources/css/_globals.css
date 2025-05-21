@@ -1,3 +1,6 @@
+@import "./components/forms.blade.php";
+@import "./components/buttons.blade.php";
+
 body {
     font-family: 'Roboto', sans-serif;
 
@@ -7,3 +10,6 @@ body {
 }
 
 @import "./partials/navbar.css";
+@import "./partials/app-navbar.css";
+
+@import "./pages/Authentication.css";
