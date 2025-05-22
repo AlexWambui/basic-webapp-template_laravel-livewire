@@ -20,6 +20,12 @@ body {
             }
         }
     }
+
+    .main_app {
+        .container {
+            @apply min-w-full px-4 py-2 mx-auto;
+        }
+    }
 }
 
 @import "./partials/navbar.css";
@@ -28,3 +34,4 @@ body {
 
 @import "./pages/Authentication.css";
 @import "./pages/Contact.css";
+@import "./pages/Dashboard.css";
