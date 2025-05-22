@@ -46,7 +46,7 @@
 
                 <div x-show="open" x-transition class="dropdown_menu">
                     <a href="{{ Route::has('profile.edit') ? route('profile.edit') : '#' }}" wire:navigate>Profile</a>
-                    <button wire:click="logout">Logout</button>
+                    <button wire:click="logout" class="btn_danger">Logout</button>
                 </div>
             </div>
         @endauth

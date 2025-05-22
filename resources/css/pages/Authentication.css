@@ -45,6 +45,8 @@
     }
 
     .Profile {
+        @apply pt-12;
+
         section {
             @apply mb-20;
 

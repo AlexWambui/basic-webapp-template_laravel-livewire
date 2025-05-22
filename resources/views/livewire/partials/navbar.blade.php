@@ -33,7 +33,7 @@
 
             <div class="other_links">
                 @auth
-                    <button wire:click="logout">Logout</button>
+                    <button wire:click="logout" class="btn_danger">Logout</button>
                 @else
                     <a href="{{ Route::has('login') ? route('login') : '#' }}">Login</a>
                 @endauth
