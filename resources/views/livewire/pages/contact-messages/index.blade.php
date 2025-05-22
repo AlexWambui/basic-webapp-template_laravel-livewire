@@ -91,28 +91,32 @@
                         </svg>
                     </button>
 
-                    <div class="contact_info">
-                        <div class="avatar">
-                            <span>{{ substr($selected_message->name, 0, 1) }}</span>
-                        </div>
-                        <div class="info">
-                            <h3>{{ $selected_message->name }}</h3>
-                            <p>{{ $selected_message->email }}</p>
-                            <p>{{ $selected_message->phone_number }}</p>
-                        </div>
-                    </div>
+                    <div class="contact_details">
+                        <div class="contact_info">
+                            <div class="avatar">
+                                <span>{{ substr($selected_message->name, 0, 1) }}</span>
+                            </div>
 
-                    <div class="actions">
-                        <button
-                            wire:click="toggleImportant"
-                            @class(['important_btn', 'active' => $selected_message->is_important])
-                        >
-                            <x-svgs.star class="w-4 h-4 text-yellow-400" />
-                        </button>
+                            <div class="info">
+                                <h3>{{ $selected_message->name }}</h3>
+                                <p>{{ $selected_message->email }}</p>
+                                <p>{{ $selected_message->phone_number }}</p>
+                            </div>
+                        </div>
 
-                        <button x-data="" x-on:click.prevent="$wire.set('delete_message_id', {{ $selected_message->id }}); $dispatch('open-modal', 'confirm-message-deletion')" class="btn_danger" >
-                            <x-svgs.trash class="w-4 h-4" />
-                        </button>
+                        <div class="actions">
+                            <button
+                                wire:click="toggleImportant"
+                                class="btn_transparent"
+                                @class(['important_btn', 'active' => $selected_message->is_important])
+                            >
+                                <x-svgs.star class="w-4 h-4 text-yellow-400" />
+                            </button>
+
+                            <button x-data="" x-on:click.prevent="$wire.set('delete_message_id', {{ $selected_message->id }}); $dispatch('open-modal', 'confirm-message-deletion')" class="btn_transparent" >
+                                <x-svgs.trash class="w-4 h-4 text-red-600" />
+                            </button>
+                        </div>
                     </div>
                 </div>
 

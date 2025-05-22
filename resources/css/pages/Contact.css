@@ -121,7 +121,7 @@
             @apply lg:block overflow-y-auto;
 
             @media (max-width: 1023px) {
-                @apply fixed inset-0 z-20 h-screen;
+                @apply fixed inset-0 z-20 h-full mt-12;
             }
 
             .details_header {
@@ -132,33 +132,39 @@
                     @apply p-2 hover:bg-gray-100 rounded-lg;
                 }
 
-                .contact_info {
-                    @apply flex items-center gap-3;
+                .contact_details {
+                    .contact_info {
+                        @apply flex items-center gap-3;
 
-                    .avatar {
-                        @apply w-12 h-12 rounded-full bg-blue-100 text-blue-600;
-                        @apply flex items-center justify-center text-xl font-semibold;
-                    }
-
-                    .info {
-                        h3 {
-                            @apply font-semibold;
+                        .avatar {
+                            @apply w-12 h-12 rounded-full bg-blue-100 text-blue-600;
+                            @apply flex items-center justify-center text-xl font-semibold;
                         }
 
-                        p {
-                            @apply text-sm text-gray-600;
+                        .info {
+                            h3 {
+                                @apply font-semibold;
+                            }
+
+                            p {
+                                @apply text-sm text-gray-600;
+                            }
                         }
                     }
-                }
 
-                .actions {
-                    @apply ml-auto;
+                    .actions {
+                        @apply ml-auto;
 
-                    .important_btn {
-                        @apply p-2 text-gray-400 hover:text-gray-600 rounded-lg;
+                        @media (max-width: 1023px) {
+                            @apply mt-2;
+                        }
 
-                        &.active {
-                            @apply text-yellow-500;
+                        .important_btn {
+                            @apply p-2 text-gray-400 hover:text-gray-600 rounded-lg;
+
+                            &.active {
+                                @apply text-yellow-500;
+                            }
                         }
                     }
                 }

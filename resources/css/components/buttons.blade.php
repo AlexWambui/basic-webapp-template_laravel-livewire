@@ -9,3 +9,7 @@ button {
 .btn_danger {
     @apply bg-red-600;
 }
+
+.btn_transparent {
+    @apply bg-transparent;
+}
