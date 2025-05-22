@@ -7,7 +7,8 @@
                 @apply block mb-1 font-medium text-gray-800;
             }
 
-            input {
+            input,
+            textarea {
                 @apply w-full border border-gray-500 rounded-sm py-2 px-3;
             }
         }
