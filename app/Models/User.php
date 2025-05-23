@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Enums\USER_ROLES;
+use App\Enums\USER_STATUSES;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -47,11 +49,41 @@ class User extends Authenticatable implements MustVerifyEmail
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'role' => USER_ROLES::class,
+            'status' => USER_STATUSES::class,
         ];
     }
 
-    public function getFullNameAttribute():string
+    public function isActive(): bool
+    {
+        return $this->status === USER_STATUSES::ACTIVE;
+    }
+
+    public function isSuperAdmin(): bool
+    {
+        return $this->role === USER_ROLES::SUPER_ADMIN;
+    }
+
+    public function isAdmin(): bool
+    {
+        return in_array($this->role, [
+            USER_ROLES::ADMIN,
+            USER_ROLES::SUPER_ADMIN,
+            USER_ROLES::OWNER,
+        ]);
+    }
+
+    public function getFullNameAttribute(): string
     {
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function getPhoneNumbersAttribute(): string
+    {
+        $phone_numbers = array_filter([
+            $this->phone_number,
+            $this->secondary_phone_number,
+        ]);
+        return $phone_numbers ? implode(' | ', $phone_numbers) : '-';
     }
 }
