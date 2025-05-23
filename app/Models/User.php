@@ -80,10 +80,22 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getPhoneNumbersAttribute(): string
     {
+        $format_phone_number = function ($phone_number) {
+            if(!$phone_number || strlen($phone_number) !== 12 || !str_starts_with($phone_number, '254')) {
+                return $phone_number;
+            }
+
+            $local = '0' . substr($phone_number, 3);
+            return substr($local, 0, 4) . ' ' . substr($local, 4, 3) . ' ' . substr($local, 7);
+        };
+
         $phone_numbers = array_filter([
             $this->phone_number,
             $this->secondary_phone_number,
         ]);
-        return $phone_numbers ? implode(' | ', $phone_numbers) : '-';
+
+        $formatted_phone_numbers = array_map($format_phone_number, $phone_numbers);
+
+        return $formatted_phone_numbers ? implode(' | ', $formatted_phone_numbers) : '-';
     }
 }

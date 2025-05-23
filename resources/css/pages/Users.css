@@ -13,6 +13,9 @@
                 .details {
                     .extras {
                         @apply mb-4 text-right;
+                        span {
+                            @apply cursor-pointer;
+                        }
                     }
 
                     .info {

@@ -16,7 +16,7 @@
                 <div class="user" wire:key="user-{{ $user->id }}">
                     <div class="details">
                         <div class="extras">
-                            <span class="{{ $user->isActive() ? 'border border-green-500 bg-green-100 text-green-900 text-xs p-1' : 'border border-red-500 bg-red-100 text-red-900 text-xs -1' }}">{{ $user->status->label() }}</span>
+                            <span wire:click="toggleStatus({{ $user->id }})" wire:loading.attr="disabled" wire:target="toggleStatus" class="{{ $user->isActive() ? 'border border-green-500 bg-green-100 text-green-900 text-xs p-1' : 'border border-red-500 bg-red-100 text-red-900 text-xs p-1' }}">{{ $user->status->label() }}</span>
                         </div>
 
                         <div class="info">
