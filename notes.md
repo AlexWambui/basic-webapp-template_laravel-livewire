@@ -1,6 +1,6 @@
 # TODOS
 - Fix auth flash messages.
-- CUD users.
+- CU users.
 
 # FEATURES
 - Authentication and Role-Based Authorization.
