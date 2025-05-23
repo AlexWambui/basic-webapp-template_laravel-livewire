@@ -12,6 +12,8 @@
     <body>
         <livewire:partials.app-navbar />
 
+        <livewire:partials.flash-messages />
+
         <main class="main_app">
             {{ $slot }}
         </main>
