@@ -11,6 +11,14 @@ class Index extends Component
 {
     use WithPagination;
 
+    public $confirm_user_deletion = false;
+    public $user_to_delete = null;
+    public ?int $delete_user_id = null;
+
+    protected $listeners = [
+        'confirm-user-deletion' => 'confirmUserDeletion',
+    ];
+
     public function toggleStatus($user_id)
     {
         $user = User::findOrFail($user_id);
@@ -23,6 +31,26 @@ class Index extends Component
         $user->save();
 
         $this->dispatch('notify', type: 'success', message: 'status updated');
+    }
+
+    public function confirmUserDeletion($data)
+    {
+        $this->delete_user_id = $data['user_id'];
+        $this->dispatch('open-modal', 'confirm-user-deletion');
+    }
+
+    public function deleteUser()
+    {
+        if($this->delete_user_id) {
+            $user = User::findOrFail($this->delete_user_id);
+            if($user) {
+                $user->delete();
+
+                $this->delete_user_id = null;
+                $this->dispatch('close-modal', 'confirm-user-deletion');
+                $this->dispatch('notify', type: 'success', message: 'user is deleted');
+            }
+        }
     }
 
     public function render()

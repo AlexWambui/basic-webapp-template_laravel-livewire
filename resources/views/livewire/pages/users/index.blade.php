@@ -25,18 +25,16 @@
                             </div>
 
                             <h3>{{ $user->first_name }} {{ $user->last_name }}</h3>
-                            <p>{{ $user->email }}</p>
+                            <p class="{{ $user->email_verified_at === null ? 'text-red-600 font-bold' : '' }}">{{ $user->email }}</p>
                             <p>{{ $user->phone_numbers }}</p>
                         </div>
                     </div>
 
                     <div class="actions">
                         <a href="{{ Route::has('user.edit') ? route('users.edit', $user->id) : '#' }}">Edit</a>
-                        <form action="{{ Route::has('users.destroy') ? route('users.destroy', $user->id) : '#' }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Delete</button>
-                        </form>
+                        <button x-data="" x-on:click.prevent="$wire.set('delete_user_id', {{ $user->id }}); $dispatch('open-modal', 'confirm-user-deletion')" class="btn_transparent" >
+                            <x-svgs.trash class="w-4 h-4 text-red-600" />
+                        </button>
                     </div>
                 </div>
             @empty
@@ -44,4 +42,27 @@
             @endforelse
         </div>
     </div>
+
+    <x-modal name="confirm-user-deletion" :show="$delete_user_id !== null" focusable>
+        <div class="custom_form">
+            <form wire:submit="deleteUser" @submit="$dispatch('close-modal', 'confirm-user-deletion')" class="p-6">
+                <h2 class="text-lg font-semibold text-gray-900">
+                    Confirm Deletion
+                </h2>
+
+                <p class="mt-2 mb-4 text-sm text-gray-600">
+                    Are you sure you want to permanently delete this user?
+                </p>
+
+                <div class="mt-6 flex justify-start">
+                    <button type="button" class="mr-2" x-on:click="$dispatch('close-modal', 'confirm-user-deletion')">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn_danger">
+                        Delete User
+                    </button>
+                </div>
+            </form>
+        </div>
+    </x-modal>
 </div>

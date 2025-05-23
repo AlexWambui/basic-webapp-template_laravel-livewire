@@ -8,7 +8,7 @@
             @apply grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4;
 
             .user {
-                @apply bg-blue-50 p-4 rounded-lg;
+                @apply bg-gray-50 p-4 rounded-lg;
 
                 .details {
                     .extras {
