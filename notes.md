@@ -1,6 +1,7 @@
 # TODOS
 - Fix auth flash messages.
-- CU users.
+- Live update users list and count.
+- U users.
 
 # FEATURES
 - Authentication and Role-Based Authorization.
