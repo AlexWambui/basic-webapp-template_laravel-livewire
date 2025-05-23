@@ -17,9 +17,11 @@ Route::middleware(['auth'])->group(function() {
     Route::get('profile', Profile::class)->name('profile.edit');
 });
 
-Route::middleware(['auth', 'verified'])->group(function() {
+Route::middleware(['authenticated_user'])->group(function() {
     Route::get('dashboard', Dashboard::class)->name('dashboard');
+});
 
+Route::middleware(['admin_only'])->group(function() {
     Route::get('users', Users::class)->name('users.index');
 
     Route::get('contact-messages', ContactMessages::class)->name('contact-messages.index');
