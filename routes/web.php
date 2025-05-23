@@ -7,6 +7,7 @@ use App\Livewire\Pages\General\Index as HomePage;
 use App\Livewire\Pages\General\About as AboutPage;
 use App\Livewire\Pages\General\Contact\Index as ContactPage;
 use App\Livewire\Pages\ContactMessages\Index as ContactMessages;
+use App\Livewire\Pages\Users\Index as Users;
 
 Route::get('/', HomePage::class)->name('home-page');
 Route::get('about', AboutPage::class)->name('about-page');
@@ -18,6 +19,9 @@ Route::middleware(['auth'])->group(function() {
 
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('dashboard', Dashboard::class)->name('dashboard');
+
+    Route::get('users', Users::class)->name('users.index');
+
     Route::get('contact-messages', ContactMessages::class)->name('contact-messages.index');
 });
 
