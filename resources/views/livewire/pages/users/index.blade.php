@@ -7,7 +7,7 @@
                 <button>Search</button>
             </div>
             <div class="button">
-                <a href="{{ Route::has('users.create') ? route('users.create') : '#' }}">Create User</a>
+                <a href="{{ Route::has('users.create') ? route('users.create') : '#' }}" class="btn">Create User</a>
             </div>
         </div>
 
