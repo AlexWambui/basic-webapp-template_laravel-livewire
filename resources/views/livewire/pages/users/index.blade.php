@@ -26,19 +26,21 @@
                         </div>
                     </div>
 
-                    <div class="actions">
-                        <div class="others">
-                            <span wire:click="toggleStatus({{ $user->id }})" wire:loading.attr="disabled" wire:target="toggleStatus" class="{{ $user->isActive() ? 'border border-green-500 bg-green-100 text-green-900 text-xs p-1' : 'border border-red-500 bg-red-100 text-red-900 text-xs p-1' }}">{{ $user->status->label() }}</span>
+                    @if(!$user->isAdmin())
+                        <div class="actions">
+                            <div class="others">
+                                <span wire:click="toggleStatus({{ $user->id }})" wire:loading.attr="disabled" wire:target="toggleStatus" class="{{ $user->isActive() ? 'border border-green-500 bg-green-100 text-green-900 text-xs p-1' : 'border border-red-500 bg-red-100 text-red-900 text-xs p-1' }}">{{ $user->status->label() }}</span>
+                            </div>
+                            <div class="crud">
+                                <a href="{{ Route::has('users.edit') ? route('users.edit', ['uuid' => $user->uuid]) : '#' }}" class="inline-flex items-center">
+                                    <x-svgs.edit class="w-4 h-4 mr-1 text-green-600" />
+                                </a>
+                                <button x-data="" x-on:click.prevent="$wire.set('delete_user_id', {{ $user->id }}); $dispatch('open-modal', 'confirm-user-deletion')" class="btn_transparent" >
+                                    <x-svgs.trash class="w-4 h-4 text-red-600" />
+                                </button>
+                            </div>
                         </div>
-                        <div class="crud">
-                            <a href="{{ Route::has('users.edit') ? route('users.edit', ['user_id' => $user->id]) : '#' }}" class="inline-flex items-center">
-                                <x-svgs.edit class="cw-4 h-4 mr-1" />
-                            </a>
-                            <button x-data="" x-on:click.prevent="$wire.set('delete_user_id', {{ $user->id }}); $dispatch('open-modal', 'confirm-user-deletion')" class="btn_transparent" >
-                                <x-svgs.trash class="w-4 h-4 text-red-600" />
-                            </button>
-                        </div>
-                    </div>
+                    @endif
                 </div>
             @empty
                 <p>No users found.</p>

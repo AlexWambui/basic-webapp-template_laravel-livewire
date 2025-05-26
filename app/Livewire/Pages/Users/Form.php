@@ -13,11 +13,11 @@ class Form extends Component
     public $user_id;
     public $first_name, $last_name, $email, $password, $password_confirmation;
 
-    public function mount($user_id = null)
+    public function mount($uuid = null)
     {
-        if ($user_id) {
-            $user = User::findOrFail($user_id);
-            $this->user_id = $user_id;
+        if ($uuid) {
+            $user = User::where('uuid', $uuid)->firstOrFail();
+            $this->user_id = $user->id;
             $this->first_name = $user->first_name;
             $this->last_name = $user->last_name;
             $this->email = $user->email;
