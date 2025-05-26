@@ -1,7 +1,12 @@
 # TODOS
 - Fix auth flash messages.
 - Live update users list and count.
-- U users.
+- Stats for users on user.index page.
+- Functionality for searching users.
+- Functionality for filtering users.
+- Functionality for sorting users.
+
+~~- CRUD users.~~
 
 # FEATURES
 - Authentication and Role-Based Authorization.
