@@ -1,12 +1,14 @@
-button {
-    @apply bg-gray-800 font-semibold text-white tracking-wide py-2 px-6 rounded-sm cursor-pointer;
+button,
+a.btn {
+    @apply bg-gray-800 font-semibold text-white tracking-widest py-2 px-6 rounded-sm cursor-pointer;
 }
 
 .buttons_group {
-    @apply flex gap-4;
+    @apply flex items-center gap-4 mt-2;
 }
 
-.btn_danger {
+.btn_danger,
+a.btn_danger {
     @apply bg-red-600;
 }
 
