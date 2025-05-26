@@ -1,9 +1,10 @@
 <div
-    x-data="{ show: @entangle('show'), type: @entangle('type') }"
-    x-init="$watch('show', value => {
-        if (value) {
-            setTimeout(() => show = false, 5000);
-        }
+    x-data="{ show: @entangle('show'), message: @entangle('message'), type: @entangle('type') }"
+    x-init="$nextTick(() => {
+        $watch('show', value => {
+            if (value) setTimeout(() => show = false, 5000);
+        });
+        if (show) setTimeout(() => show = false, 5000);
     })"
     x-show="show"
     x-transition
@@ -14,6 +15,7 @@
         'bg-red-100 border-red-400 text-red-700': type === 'error',
         'bg-yellow-100 border-yellow-400 text-yellow-800': type === 'warning'
     }"
+    style="display: none;"
 >
-    <span class="block sm:inline">{{ $message }}</span>
+    <span x-text="message"></span>
 </div>
