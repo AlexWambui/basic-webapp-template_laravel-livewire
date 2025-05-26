@@ -11,13 +11,6 @@
                 @apply bg-gray-50 p-4 rounded-lg;
 
                 .details {
-                    .extras {
-                        @apply mb-4 text-right;
-                        span {
-                            @apply cursor-pointer;
-                        }
-                    }
-
                     .info {
                         @apply flex flex-col gap-1 items-center;
 
