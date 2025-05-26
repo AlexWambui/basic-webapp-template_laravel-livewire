@@ -8,10 +8,14 @@
 
 ~~- CRUD users.~~
 
+
+
 # FEATURES
 - Authentication and Role-Based Authorization.
 - User Management.
 - Contact Form Messages.
+
+
 
 # DB DESIGN
 ```
@@ -42,6 +46,8 @@ contact_messages {
     timestamps();
 }
 ```
+
+
 
 # ENUMS
 ```
