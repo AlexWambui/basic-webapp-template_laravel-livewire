@@ -8,6 +8,8 @@ use App\Livewire\Pages\General\About as AboutPage;
 use App\Livewire\Pages\General\Contact\Index as ContactPage;
 use App\Livewire\Pages\ContactMessages\Index as ContactMessages;
 use App\Livewire\Pages\Users\Index as Users;
+use App\Livewire\Pages\Users\Form as CreateUser;
+use App\Livewire\Pages\Users\Form as EditUser;
 
 Route::get('/', HomePage::class)->name('home-page');
 Route::get('about', AboutPage::class)->name('about-page');
@@ -23,6 +25,8 @@ Route::middleware(['authenticated_user'])->group(function() {
 
 Route::middleware(['admin_only'])->group(function() {
     Route::get('users', Users::class)->name('users.index');
+    Route::get('users/create', CreateUser::class)->name('users.create');
+    Route::get('users/{user_id}/edit', EditUser::class)->name('users.edit');
 
     Route::get('contact-messages', ContactMessages::class)->name('contact-messages.index');
 });

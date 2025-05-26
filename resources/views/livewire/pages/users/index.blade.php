@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="actions">
-                        <a href="{{ Route::has('user.edit') ? route('users.edit', $user->id) : '#' }}">Edit</a>
+                        <a href="{{ Route::has('users.edit') ? route('users.edit', ['user_id' => $user->id]) : '#' }}">Edit</a>
                         <button x-data="" x-on:click.prevent="$wire.set('delete_user_id', {{ $user->id }}); $dispatch('open-modal', 'confirm-user-deletion')" class="btn_transparent" >
                             <x-svgs.trash class="w-4 h-4 text-red-600" />
                         </button>
