@@ -1,5 +1,6 @@
 # TODOS
 - Fix auth flash messages.
+- Add a button for super admins to verify users.
 - Functionality for searching users.
 - Functionality for filtering users.
 - Functionality for sorting users.
