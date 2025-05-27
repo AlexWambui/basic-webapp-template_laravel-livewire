@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\User;
 use App\Enums\USER_STATUSES;
+use App\Enums\USER_ROLES;
 
 class Index extends Component
 {
@@ -56,7 +57,17 @@ class Index extends Component
     public function render()
     {
         $users = User::orderBy('first_name')->paginate(50);
+        $count_users = User::count();
+        $count_super_admins = User::where('role', USER_ROLES::SUPER_ADMIN->value)->count();
+        $count_admins = User::where('role', USER_ROLES::ADMIN->value)->count();
+        $count_owners = User::where('role', USER_ROLES::OWNER->value)->count();
 
-        return view('livewire.pages.users.index', compact('users'));
+        return view('livewire.pages.users.index', compact(
+            'users',
+            'count_users',
+            'count_super_admins',
+            'count_admins',
+            'count_owners',
+        ));
     }
 }

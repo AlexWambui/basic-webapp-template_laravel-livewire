@@ -7,11 +7,13 @@ use App\Models\User;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Enum;
+use App\Enums\USER_ROLES;
 
 class Form extends Component
 {
     public $user_id;
-    public $first_name, $last_name, $email, $password, $password_confirmation;
+    public $first_name, $last_name, $email, $role, $password, $password_confirmation;
 
     public function mount($uuid = null)
     {
@@ -21,6 +23,7 @@ class Form extends Component
             $this->first_name = $user->first_name;
             $this->last_name = $user->last_name;
             $this->email = $user->email;
+            $this->role = $user->role;
         }
     }
 
@@ -31,6 +34,7 @@ class Form extends Component
             'last_name' => ['required', 'string', 'max:120'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email,' . $this->user_id],
             'password' => ['nullable', 'string', 'confirmed', Rules\Password::defaults()],
+            'role' => ['required', new Enum(USER_ROLES::class)],
         ];
 
         if (!$this->user_id) {

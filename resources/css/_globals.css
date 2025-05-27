@@ -27,6 +27,21 @@ body {
 
             .header {
                 @apply flex flex-col items-start lg:flex-row gap-4;
+
+                .info {
+                    h2 {
+                        @apply text-lg font-bold;
+                    }
+
+                    .stats {
+                        @apply flex gap-1;
+
+                        span:not(:last-child) {
+                            @apply after:content-['|'] after:ml-1 after:text-gray-400 text-sm;
+
+                        }
+                    }
+                }
             }
         }
 

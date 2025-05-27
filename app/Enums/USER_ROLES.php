@@ -19,7 +19,7 @@ enum USER_ROLES: int
         };
     }
 
-    public function labels():array
+    public static function labels():array
     {
         $labels = [];
 
