@@ -1,6 +1,5 @@
 <nav x-data="{ open: false }" class="app_navbar">
     <div class="nav_container">
-
         <!-- Branding -->
         <div class="branding">
             <a href="/" wire:navigate>{{ config('app.name') }}</a>
@@ -14,14 +13,14 @@
         </div>
 
         <!-- Nav Links -->
-        <div :class="{ 'open': open }" class="nav_links">
+        <div :class="{ 'open': open }" class="nav_links" x-cloak>
             <div class="main_links">
                 <a href="{{ Route::has('dashboard') ? route('dashboard') : '#' }}" wire:navigate>Dashboard</a>
                 <a href="{{ Route::has('users.index') ? route('users.index') : '#' }}" wire:navigate>Users</a>
                 <a href="{{ Route::has('contact-messages.index') ? route('contact-messages.index') : '#' }}" wire:navigate>Messages</a>
 
                 @auth
-                    <!-- Mobile view: show profile + logout inline -->
+                    <!-- Mobile view -->
                     <div class="mobile_only md:hidden">
                         <a href="{{ Route::has('profile.edit') ? route('profile.edit') : '#' }}" wire:navigate>Profile</a>
                         <button wire:click="logout" class="text-left w-full">Logout</button>
@@ -44,7 +43,7 @@
                     </svg>
                 </button>
 
-                <div x-show="open" x-transition class="dropdown_menu">
+                <div x-show="open" x-cloak x-transition class="dropdown_menu">
                     <a href="{{ Route::has('profile.edit') ? route('profile.edit') : '#' }}" wire:navigate>Profile</a>
                     <button wire:click="logout" class="btn_danger">Logout</button>
                 </div>

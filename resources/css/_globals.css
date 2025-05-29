@@ -36,8 +36,11 @@ body {
                     .stats {
                         @apply flex gap-1;
 
+                        span {
+                            @apply text-xs;
+                        }
                         span:not(:last-child) {
-                            @apply after:content-['|'] after:ml-1 after:text-gray-400 text-sm;
+                            @apply after:content-['|'] after:ml-1 after:text-gray-400;
 
                         }
                     }

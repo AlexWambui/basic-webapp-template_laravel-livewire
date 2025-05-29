@@ -12,6 +12,7 @@ a.btn_danger {
     @apply bg-red-600;
 }
 
-.btn_transparent {
+.btn_transparent,
+a.btn_transparent {
     @apply bg-transparent;
 }

@@ -22,10 +22,6 @@
 
                 .actions {
                    @apply flex items-center justify-between mt-6;
-
-                   button {
-                       @apply px-2 py-2;
-                   }
                 }
             }
         }

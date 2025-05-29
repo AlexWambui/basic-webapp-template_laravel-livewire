@@ -1,6 +1,10 @@
 .app_navbar {
     @apply sticky top-0 left-0 right-0 z-50 bg-gray-900 text-white font-semibold;
 
+    [x-cloak] {
+        display: none !important;
+    }
+
     .nav_container {
         @apply flex items-center justify-between flex-wrap py-4 px-4 md:py-6 md:px-4;
     }
