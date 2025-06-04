@@ -22,7 +22,10 @@
                     <a href="{{ Route::has('password.request') ? route('password.request') : '#' }}" wire:navigate>Forgot your password?</a>
                 </div>
 
-                <button type="submit">Login</button>
+                <button type="submit" wire:loading.attr="disabled" wire:target="login">
+                    <span wire:loading.remove wire:target="login">Login</span>
+                    <span wire:loading wire:target="login">Logging in...</span>
+                </button>
             </form>
 
             <div class="extra_links">

@@ -10,7 +10,10 @@
                     <x-form-input-error field="email" />
                 </div>
 
-                <button type="submit">Email Password Reset Link</button>
+                <button type="submit" wire:loading.attr="disabled" wire:target="sendPasswordResetLink">
+                    <span wire:loading.remove wire:target="sendPasswordResetLink">Send Password Reset Link</span>
+                    <span wire:loading wire:target="sendPasswordResetLink">Sending password reset link...</span>
+                </button>
             </form>
         </div>
     </div>

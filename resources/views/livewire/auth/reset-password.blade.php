@@ -20,7 +20,10 @@
                     <x-form-input-error field="password_confirmation" />
                 </div>
 
-                <button type="submit">Reset Password</button>
+                <button type="submit" wire:loading.attr="disabled" wire:target="resetPassword">
+                    <span wire:loading.remove wire:target="resetPassword">Reset Password</span>
+                    <span wire:loading wire:target="resetPassword">Resetting password...</span>
+                </button>
             </form>
         </div>
     </div>

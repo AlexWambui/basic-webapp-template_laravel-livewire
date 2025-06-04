@@ -36,7 +36,10 @@
                     <x-form-input-error field="password_confirmation" />
                 </div>
 
-                <button type="submit">Signup</button>
+                <button type="submit" wire:loading.attr="disabled" wire:target="signup">
+                    <span wire:loading.remove wire:target="signup">Signup</span>
+                    <span wire:loading wire:target="signup">Signing in...</span>
+                </button>
             </form>
 
             <div class="extra_links">
