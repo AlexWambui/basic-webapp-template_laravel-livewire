@@ -1,0 +1,67 @@
+.HomePage {
+    .Hero-1 {
+        .container {
+            @apply grid grid-cols-1 lg:grid-cols-2 items-center gap-8;
+
+            .content {
+                @apply space-y-4;
+
+                .title {
+                    @apply font-bold tracking-wider;
+                }
+
+                .punchline {
+                    @apply text-[2.8rem] lg:text-[4.8rem] font-semibold tracking-wide leading-[1.15] lg:w-[95%];
+                }
+
+                .hero_actions {
+                    @apply mt-8;
+
+                    a {
+                        @apply font-bold tracking-wide bg-gray-900 text-white py-[16px] px-[24px] rounded-lg;
+                    }
+                }
+            }
+
+            .image {
+                @apply h-[40dvh] lg:h-[75dvh];
+            }
+        }
+    }
+
+    .Hero-2 {
+        @apply relative flex items-center justify-center min-h-[90dvh] w-full overflow-hidden;
+
+        video {
+            @apply absolute inset-0 w-full h-full object-cover z-0;
+        }
+
+        .mask {
+            @apply absolute inset-0 bg-black/10 z-10;
+        }
+
+        .content {
+            @apply relative z-20 flex flex-col items-center justify-center text-center w-full px-4;
+
+            p {
+                @apply text-white text-xl md:text-2xl max-w-2xl mx-auto drop-shadow-md mb-4;
+            }
+
+            .title{
+                @apply text-white text-lg md:text-xl font-bold drop-shadow-lg mb-4 tracking-wide;
+            }
+
+            .punchline {
+                @apply text-2xl md:text-5xl font-bold;
+            }
+
+            .hero_actions {
+                @apply mt-8;
+
+                a {
+                    @apply font-bold tracking-wide text-gray-900 bg-white py-[16px] px-[24px] rounded-lg;
+                }
+            }
+        }
+    }
+}

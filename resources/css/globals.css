@@ -1,1 +1,14 @@
 @import "./tailwind.css";
+
+* {
+    font-family: sans-serif;
+    outline: 1px solid rgb(186, 253, 198);
+}
+
+.image {
+    @apply bg-slate-200 rounded-lg;
+
+    img {
+        @apply object-cover w-full h-full rounded-lg;
+    }
+}
