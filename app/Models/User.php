@@ -75,7 +75,6 @@ class User extends Authenticatable
         return in_array($this->role, [
             UserRoles::SUPER_ADMIN,
             UserRoles::ADMIN,
-            UserRoles::OWNER,
         ]);
     }
 

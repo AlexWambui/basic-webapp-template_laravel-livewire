@@ -14,6 +14,17 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'slogan' => 'Best Software Solutions',
+    'location' => 'Nairobi, Kenya',
+    'address' => 'Harvest Hill Plaza,<br/> Room 48',
+    'phone_number' => '+254 746 055 487',
+    'secondary_phone_number' => '+254 746 055 487',
+    'email' => 'info@aaqilify.com',
+    'whatsapp' => 'https://wa.me/254746055487',
+    'instagram' => 'https://www.instagram.com/aaqilify',
+    'facebook' => 'https://www.facebook.com/aaqilify',
+    'tiktok' => 'https://www.tiktok.com/@aaqilify',
+    'linkedin' => 'https://www.linkedin.com/in/aaqilify',
 
     /*
     |--------------------------------------------------------------------------

@@ -26,7 +26,7 @@
                 {{ $slot }}
             </div>
 
-            {{-- <livewire:partials.footer /> --}}
+            <livewire:partials.footers.footer1 />
         </main>
 
         @livewireScripts

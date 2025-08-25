@@ -8,7 +8,7 @@
 
         @livewireStyles
 
-        @vite(['resources/css/guest-layout.css', 'resources/js/app.js'])
+        @vite(['resources/css/app-layout.css', 'resources/js/app.js'])
 
         @isset($head)
             {{ $head }}
@@ -20,7 +20,7 @@
         <livewire:partials.flash-messages />
 
         <main class="app_layout">
-            <livewire:partials.app-navbar />
+            <livewire:partials.navbars.navbar2 />
 
             <div class="app_layout_container">
                 {{ $slot }}

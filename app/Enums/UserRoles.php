@@ -6,15 +6,13 @@ enum UserRoles: int
 {
     case SUPER_ADMIN = 0;
     case ADMIN = 1;
-    case OWNER = 2;
-    case USER = 3;
+    case USER = 2;
 
     public function label():string
     {
         return match($this) {
             self::SUPER_ADMIN => 'Super Admin',
             self::ADMIN => 'Admin',
-            self::OWNER => 'Owner',
             self::USER => 'User',
         };
     }
